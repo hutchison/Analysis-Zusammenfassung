@@ -2,7 +2,7 @@
 a4paper,
 %empty,	    %keine Seitenzahlen
 %a5paper,	% alle weiteren Papierformat einstellbar
-10pt,		% Schriftgröße (12pt, 11pt (Standard))
+10pt,		% Schriftgroeße (12pt, 11pt (Standard))
 leqno,   	% Nummerierung von Gleichungen links
 fleqn,		% Ausgabe von Gleichungen linksbündig
 ]
@@ -11,15 +11,23 @@ fleqn,		% Ausgabe von Gleichungen linksbündig
 %\pagestyle{empty}
 %\pagestyle{headings}
 
-%% Deutsche Anpassungen 
+%% Deutsche Anpassungen
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[ansinew]{inputenc}
+\usepackage[latin1]{inputenc}
 
 %obligatorischer Mathekram:
 \usepackage{amssymb,amstext}
 \usepackage[sumlimits]{amsmath}
 \usepackage{eulervm}
+\usepackage[thref,standard]{ntheorem}
+
+%Einstellungen fuer ntheorem
+
+\theoremheaderfont{\normalfont\scshape}
+\theorembodyfont{\normalfont}
+\theoremseparator{:\newline}
+\newtheorem{defin}{Definition}
 
 %nützliche Extras:
 \usepackage{array,
@@ -38,13 +46,13 @@ lastpage,
 algorithm,
 }
 
-%nötig für Querformat
+%noetig für Querformat
 %\usepackage[landscape]{geometry}
 
 %\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm,includeheadfoot]{geometry}
-%\usepackage[cm,
+\usepackage[cm,
 %headings,
-%]{fullpage}
+]{fullpage}
 
 %\usepackage{fancyhdr}
 %\pagestyle{fancy}
@@ -75,6 +83,11 @@ algorithm,
 
 %\pagestyle{empty} 
 
-bla
+\begin{defin}[K{\"o}rper]\label{koerper}
+Ein Körper ist bla bla bla
+\end{defin}
+
+
+siehe \thref{koerper}
 
 \end{document}
