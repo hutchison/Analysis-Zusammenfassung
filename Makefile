@@ -1,7 +1,7 @@
 main:	main.tex
 	pdflatex main.tex
 
-OBJ = main.pdf main.dvi main.aux main.out main.log
+OBJ = main.pdf main.dvi main.aux main.out main.log main.thm missfont.log
 
 .PHONY: clean
 

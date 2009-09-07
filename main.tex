@@ -27,7 +27,7 @@ fleqn,		% Ausgabe von Gleichungen linksbündig
 \theoremheaderfont{\normalfont\scshape}
 \theorembodyfont{\normalfont}
 \theoremseparator{:\newline}
-\newtheorem{defin}{Definition}
+\newtheorem{defin}{Definition}[subsection]
 
 %nützliche Extras:
 \usepackage{array,
@@ -83,11 +83,106 @@ algorithm,
 
 %\pagestyle{empty} 
 
-\begin{defin}[K{\"o}rper]\label{koerper}
-Ein Körper ist bla bla bla
+\section{Analysis 1}
+
+\subsection{Prädikatenlogik}
+
+\subsection{Mengenlehre}
+kartesischen Produkts
+
+\subsection{Abbildungen}
+
+\begin{defin}[Abbildung]
+\ \newline
+Eine Abbildung $f$ von einer Menge $\mathbb{X}$ in eine Menge $\mathbb{Y}$ (Notation: $f: \mathbb{X} \mapsto \mathbb{Y}$)
+ist eine Zuordnung oder Vorschrift, die jedem Element $x \in \mathbb{X}$ ein eindeutiges Element $f(x) \in \mathbb{Y}$ zuordnet.
 \end{defin}
 
+\begin{defin}[Graph]
+\ \newline
+Der Graph einer Abbildung ist eine Teilmenge $\mathbb{G} \subset \mathbb{X} \times \mathbb{Y}$, die durch 
+Graph($f$) := $\{ (x,f(x)) \in \mathbb{X} \times \mathbb{Y}\ |\ x \in \mathbb{X}\}$ beschrieben wird. 
+Jedem $x \in \mathbb{X}$ wird genau ein $y \in \mathbb{X}$ zugeordnet (Notation: $y=f(x)$).
+\end{defin}
 
-siehe \thref{koerper}
+\subsection{Körperaxiome}
+
+\begin{defin}[Körper]\label{koerper}
+\ \newline
+Ein Tripel ($\mathbb{K}$,$+$,$\cdot$) bestehend aus einer Menge $\mathbb{K}$ und zwei binären Verknüpfungen 
+
+\begin{tabular}{cccl}
+$+$ & : & $\mathbb{K} \times \mathbb{K} \rightarrow \mathbb{K}$, & $(x,y) \mapsto x+y$\\
+$\cdot$ & : & $\mathbb{K} \times \mathbb{K} \rightarrow \mathbb{K}$, & $(x,y) \mapsto x \cdot y$\\
+\end{tabular}
+
+(normalerweise \emph{Addition} und \emph{Multiplikation}) heißt genau dann Körper, wenn für alle $x$,$y$,$z \in \mathbb{K}$ die 
+folgenden Axiome gelten:
+\begin{itemize}
+\item Axiome der Addition
+    \begin{enumerate}
+    \item Assoziativität: $x + ( y + z ) = ( x + y ) + z$
+    \item Kommutativität: $x + y = y + x$
+    \item Existenz des neutralen Elements: $\exists 0 \in \mathbb{K}: x + 0 = x$
+    \item Existenz der inversen Elemente: \emph{Zu jedem $x \in \mathbb{K}$ existiert genau ein Element $-x \in \mathbb{K}$}: $x + (-x) = 0$
+    \end{enumerate}
+\item Axiome der Multiplikation
+    \begin{enumerate}
+    \item Assoziativität: $x \cdot ( y \cdot z ) = ( x \cdot y ) \cdot z$
+    \item Kommutativität: $x \cdot y = y \cdot x$
+    \item Existenz des neutralen Elements: $\exists 1 \in \mathbb{K},1 \neq 0: x \cdot 1 = x$
+    \item Existenz der inversen Elemente: \emph{Zu jedem $x \in \mathbb{K}$ mit $x \neq 0$ existiert genau ein Element $x^{-1} \in \mathbb{K}$
+            }: $x \cdot x^{-1} = 1$
+    \end{enumerate}
+\item Distributivgesetz: $x \cdot ( y + z ) = x \cdot y + x \cdot z$
+\end{itemize}
+\end{defin}
+
+\begin{Beispiel}
+Die Mengen $\mathbb{Q}, \mathbb{R}$ und $\mathbb{C}$ bilden mit "`+"' und "`\ $\cdot$\ "' einen Körper. Neutrale Elemente sind 0 bzw. $(0,0)$
+für die Addition und 1 bzw. $(1,0)$ für die Multiplikation.
+\end{Beispiel}
+
+\begin{defin}[binäre Relation]\label{brelation}
+\ \newline
+Eine binäre Relation $\cal{R}$ auf der Menge $\mathbb{M}$ ist eine Teilmenge von $\mathbb{M} \times \mathbb{M}$, also $\cal{R} \subset \mathbb{M} \times \mathbb{M}$
+\end{defin}
+
+\begin{defin}[Relationseigenschaften]\label{eigrelation}
+\ \newline
+Eine binäre Relation $\cal{R}$ auf einer Menge $\mathbb{M}$ heißt
+\begin{itemize}
+    \item \textbf{reflexiv}, falls $\forall m \in \mathbb{M}: (m,m) \in \cal{R}$
+    \item \textbf{symmetrisch}, falls $\forall m,n \in \mathbb{M}: (m,n) \in \cal{R} \Rightarrow $$ (n,m) \in \cal{R}$
+    \item \textbf{transitiv}, falls $\forall k,m,n \in \mathbb{M}: (k,m) \in \cal{R}\ \wedge\ $$ (m,n) \in \cal{R} \Rightarrow $$ (k,n) \in \cal{R}$
+\end{itemize}
+\end{defin}
+
+\begin{defin}[Äquivalenzrelation]
+\ \newline
+$\cal{R}$ ist eine binäre Relation auf $\mathbb{M}$, welche reflexiv, symmetrisch und transitiv ist. Notation: $x \sim y$.
+\end{defin}
+
+\begin{defin}[Ordnungsrelation]
+\ \newline
+$\cal{R}$ ist eine binäre Relation auf $\mathbb{M}$, welche reflexiv, antisymmetrisch und transitiv ist. Notation: $x \leq y$.
+\end{defin}
+
+\begin{defin}[angeordneter Körper]
+\ \newline
+Ein Körper $(\mathbb{K},+,\cdot)$ wird mit einer Ordnungsrelation $\leq$ zu einem angeordneten Körper. Elemente aus $\mathbb{K}$ werden damit 
+vergleichbar und es gilt $\forall x,y \in \mathbb{K}: x \leq y \vee y \leq x$
+\end{defin}
+
+\begin{defin}[Absolutbetrag]
+\begin{displaymath}
+|x| := \left\{
+\begin{array}{cl}
+x & x \geq 0\\
+-x & x < 0\\
+\end{array}
+\right.
+\end{displaymath}
+\end{defin}
 
 \end{document}
