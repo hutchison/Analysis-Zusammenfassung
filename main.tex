@@ -1,10 +1,10 @@
 \documentclass[%
 a4paper,
-%empty,	    %keine Seitenzahlen
-%a5paper,	% alle weiteren Papierformat einstellbar
-10pt,		% Schriftgroeße (12pt, 11pt (Standard))
-leqno,   	% Nummerierung von Gleichungen links
-fleqn,		% Ausgabe von Gleichungen linksbündig
+%empty,         % keine Seitenzahlen
+%a5paper,       % alle weiteren Papierformat einstellbar
+10pt,           % Schriftgröße (12pt, 11pt (Standard))
+leqno,          % Nummerierung von Gleichungen links
+fleqn,          % Ausgabe von Gleichungen linksbündig
 ]
 {scrartcl}
 
@@ -22,12 +22,15 @@ fleqn,		% Ausgabe von Gleichungen linksbündig
 \usepackage{eulervm}
 \usepackage[thref,standard]{ntheorem}
 
+%ist mir zu blöd, das jedes Mal zu schreiben:
+\newcommand{\mb}[1]{\mathbb{#1}}
+
 %Einstellungen fuer ntheorem
 
 \theoremheaderfont{\normalfont\scshape}
 \theorembodyfont{\normalfont}
 \theoremseparator{:\newline}
-\newtheorem{defin}{Definition}[subsection]
+\newtheorem{defin}{Definition}[subsubsection]
 
 %nützliche Extras:
 \usepackage{array,
@@ -88,7 +91,63 @@ algorithm,
 \subsection{Prädikatenlogik}
 
 \subsection{Mengenlehre}
+
+\begin{defin}[Menge]
+\ \newline
+Nach Georg Cantor: "`Unter einer 'Menge' verstehen wir jede Zusammenfassung $\mathbb{M}$ von bestimmten wohlunterschiedenen Objekten $m$ 
+unserer Anschauung oder unseres Denkens (welche die 'Elemente' von $\mathbb{M}$ genannt werden) zu einem Ganzen."'
+\end{defin}
+
+\begin{defin}["`$\in$"' Notation]
+\ \newline
+Man schreibt $m \in \mathbb{M}$ falls $m$ ein Element der Menge $\mathbb{M}$ ist und $m \notin \mathbb{M}$ falls $m$ kein Element der Menge ist.
+\end{defin}
+
 kartesischen Produkts
+
+\subsection{Induktion}
+
+\begin{defin}[$\mathbb{N}$ als Teilmenge von $\mathbb{R}$]
+\ \newline
+Es sei $\mathbb{N}$ die kleinste Teilmenge von $\mathbb{R}$ mit den folgenden Eigenschaften:
+\begin{enumerate}
+    \item $0 \in \mathbb{N}$
+    \item $x \in \mathbb{N} \Rightarrow x+1 \in \mathbb{N}$
+\end{enumerate}
+$\mathbb{N}$ besteht also aus der $0$ und ihren, durch Addition von $1$, definierten Nachfolgern. Dazu gibt's die Nachfolgerfunktion:
+\[
+v: \mathbb{N} \mapsto \mathbb{N},\ v(x):=x+1
+\]
+
+\begin{defin}[Peano Axiome]
+\
+\begin{itemize}
+    \item[(\textbf{P.1})] Zwei verschiedene Elemente von $\mathbb{N}$ haben verschiedene Nachfolger: $x \neq y \Rightarrow v(x) \neq v(y)$
+    \item[(\textbf{P.2})] Kein Element von $\mathbb{N}$ hat 0 als Nachfolger: $0 \notin v(\mathbb{N})$
+    \item[(\textbf{P.3})] (Induktions-Axiom)
+
+Sei $\mathbb{M} \subset \mathbb{N}$ eine Teilmenge mit folgenden Eigenschaften:
+    \begin{enumerate}
+        \item $0 \in \mathbb{M}$
+        \item $x \in \mathbb{M} \Rightarrow v(x) \in \mathbb{M}$
+    \end{enumerate}
+Dann gilt $\mathbb{M} = \mathbb{N}$.
+\end{itemize}
+\end{defin}
+
+\end{defin}
+
+\begin{defin}[Induktionsprinzip]
+\ \newline
+Eine Aussage $A(n)$ gilt für alle $n \in \mathbb{N}$, wenn $A(1)$ gilt und für jedes $n \in \mathbb{N}$ aus der Aussage $A(n)$ die 
+Aussage $A(n+1)$ folgt.
+\end{defin}
+
+\begin{Anmerkung}
+\ \newline
+$A(1)$ nennt man den Induktionsanfang und den Beweis von $\forall n \in \mathbb{N}: A(n) \Rightarrow A(n+1)$ den 
+Induktionsschluss oder Induktionsschritt.
+\end{Anmerkung}
 
 \subsection{Abbildungen}
 
@@ -143,6 +202,8 @@ Die Mengen $\mathbb{Q}, \mathbb{R}$ und $\mathbb{C}$ bilden mit "`+"' und "`\ $\
 für die Addition und 1 bzw. $(1,0)$ für die Multiplikation.
 \end{Beispiel}
 
+\subsubsection{Relation}
+
 \begin{defin}[binäre Relation]\label{brelation}
 \ \newline
 Eine binäre Relation $\cal{R}$ auf der Menge $\mathbb{M}$ ist eine Teilmenge von $\mathbb{M} \times \mathbb{M}$, also $\cal{R} \subset \mathbb{M} \times \mathbb{M}$
@@ -174,6 +235,8 @@ Ein Körper $(\mathbb{K},+,\cdot)$ wird mit einer Ordnungsrelation $\leq$ zu eine
 vergleichbar und es gilt $\forall x,y \in \mathbb{K}: x \leq y \vee y \leq x$
 \end{defin}
 
+\subsubsection{Absolutbetrag}
+
 \begin{defin}[Absolutbetrag]
 \begin{displaymath}
 |x| := \left\{
@@ -184,5 +247,67 @@ x & x \geq 0\\
 \right.
 \end{displaymath}
 \end{defin}
+
+\begin{Satz}[Eigenschaften des Absolutbetrages]\label{satz:eigabs}
+\
+\begin{itemize}
+    \item[(a)] \emph{Positive Definitheit:} $\forall x \in \mathbb{R}: |x| \geq 0$ und $|x|=0 \Longleftrightarrow x=0$
+    \item[(b)] \emph{Multiplikativität:} $\forall x,y \in \mathbb{R}: |x \cdot y| = |x| \cdot |y|$
+    \item[(c)] \emph{Dreiecksungleichung:} $\forall x,y \in \mathbb{R}: |x+y| \leq |x|+|y|$
+\end{itemize}
+\end{Satz}
+
+\begin{Anmerkung}
+Gelten in einem Körper die Eigenschaften \emph{a},\emph{b},\emph{c} aus Satz \ref{satz:eigabs}, dann nennt man ihn einen 
+\emph{bewerteten} Körper. Angeordnete Körper müssen nicht gleich bewertete Körper sein. Beispiel: $\mathbb{C}$
+\end{Anmerkung}
+
+\begin{defin}[Metrik im Reellen]
+\ \newline
+Über die Betragsfunktion lässt sich eine Metrik (Abstandsfunktion) definieren: $\forall x,y \in \mb{R}: d(x,y):=|x-y|=|y-x|$.
+\end{defin}
+
+\subsubsection{Archimedisches Axiom}
+
+\begin{defin}[Archimedisches Axiom]
+\ \newline
+Zu je zwei reellen Zahlen $x,y > 0$ existiert eine natürliche Zahl $n$ mit $n \cdot x > y$.
+\end{defin}
+
+\begin{Korollar}[Gauß-Klammer]
+\ \newline
+\begin{tabular}{ll}
+\textbf{\emph{abrunden:}}  & $\lfloor x \rfloor$ ist jene Zahl $n \in \mathbb{Z}$ für die gilt: $n \leq x < n+1$.\\
+\textbf{\emph{aufrunden:}} & $\lceil x \rceil$ ist jene Zahl $m \in \mathbb{Z}$ für die gilt: $m < x \leq m+1$.
+\end{tabular}
+\end{Korollar}
+
+\begin{Satz}[Bernoullische Ungleichung]
+\ \newline
+Sei $x \geq -1$, dann gilt $\forall n \in \mathbb{N}$:
+\[
+    (1+x)^n \geq 1 + n \cdot x
+\]
+\end{Satz}
+
+\subsection{Folgen, Grenzwerte}
+
+\begin{defin}[Folge]
+\ \newline
+Unter einer \emph{Folge} reeller Zahlen versteht man eine Abbildung $\mathbb{N} \mapsto \mathbb{R}$. Jedem $n \in \mathbb{N}$ 
+ist also ein $a_n \in \mathbb{R}$ zugeordnet. Notation: $(a_n)_{n \in \mathbb{N}}$ oder $(a_0,a_1,a_2,a_3,...)$
+\end{defin}
+
+\begin{defin}[Konvergenz]
+\ \newline
+Sei $(a_n)_{n \in \mathbb{N}}$ eine Folge reeller Zahlen. Die Folge heißt \emph{konvergent} gegen $a \in \mb{R}$, falls gilt:
+\[
+    \forall \varepsilon > 0\ \exists N = N(\varepsilon) \in \mb{N}\ \forall n \in \mb{N}: n \geq N(\varepsilon) \Rightarrow |a_n - a| < \varepsilon
+\]
+
+Notation: $\lim\limits_{n \rightarrow \infty}$
+\end{defin}
+
+
 
 \end{document}
