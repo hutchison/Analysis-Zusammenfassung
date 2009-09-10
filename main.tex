@@ -24,6 +24,7 @@ fleqn,          % Ausgabe von Gleichungen linksbündig
 
 %ist mir zu blöd, das jedes Mal zu schreiben:
 \newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\limes}{\lim\limits_{n\rightarrow\infty}}
 
 %Einstellungen fuer ntheorem
 
@@ -94,44 +95,44 @@ algorithm,
 
 \begin{defin}[Menge]
 \ \newline
-Nach Georg Cantor: "`Unter einer 'Menge' verstehen wir jede Zusammenfassung $\mathbb{M}$ von bestimmten wohlunterschiedenen Objekten $m$ 
-unserer Anschauung oder unseres Denkens (welche die 'Elemente' von $\mathbb{M}$ genannt werden) zu einem Ganzen."'
+Nach Georg Cantor: "`Unter einer 'Menge' verstehen wir jede Zusammenfassung $\mb{M}$ von bestimmten wohlunterschiedenen Objekten $m$ 
+unserer Anschauung oder unseres Denkens (welche die 'Elemente' von $\mb{M}$ genannt werden) zu einem Ganzen."'
 \end{defin}
 
 \begin{defin}["`$\in$"' Notation]
 \ \newline
-Man schreibt $m \in \mathbb{M}$ falls $m$ ein Element der Menge $\mathbb{M}$ ist und $m \notin \mathbb{M}$ falls $m$ kein Element der Menge ist.
+Man schreibt $m \in \mb{M}$ falls $m$ ein Element der Menge $\mb{M}$ ist und $m \notin \mb{M}$ falls $m$ kein Element der Menge ist.
 \end{defin}
 
 kartesischen Produkts
 
 \subsection{Induktion}
 
-\begin{defin}[$\mathbb{N}$ als Teilmenge von $\mathbb{R}$]
+\begin{defin}[$\mb{N}$ als Teilmenge von $\mb{R}$]
 \ \newline
-Es sei $\mathbb{N}$ die kleinste Teilmenge von $\mathbb{R}$ mit den folgenden Eigenschaften:
+Es sei $\mb{N}$ die kleinste Teilmenge von $\mb{R}$ mit den folgenden Eigenschaften:
 \begin{enumerate}
-    \item $0 \in \mathbb{N}$
-    \item $x \in \mathbb{N} \Rightarrow x+1 \in \mathbb{N}$
+    \item $0 \in \mb{N}$
+    \item $x \in \mb{N} \Rightarrow x+1 \in \mb{N}$
 \end{enumerate}
-$\mathbb{N}$ besteht also aus der $0$ und ihren, durch Addition von $1$, definierten Nachfolgern. Dazu gibt's die Nachfolgerfunktion:
+$\mb{N}$ besteht also aus der $0$ und ihren, durch Addition von $1$, definierten Nachfolgern. Dazu gibt's die Nachfolgerfunktion:
 \[
-v: \mathbb{N} \mapsto \mathbb{N},\ v(x):=x+1
+v: \mb{N} \mapsto \mb{N},\ v(x):=x+1
 \]
 
 \begin{defin}[Peano Axiome]
 \
 \begin{itemize}
-    \item[(\textbf{P.1})] Zwei verschiedene Elemente von $\mathbb{N}$ haben verschiedene Nachfolger: $x \neq y \Rightarrow v(x) \neq v(y)$
-    \item[(\textbf{P.2})] Kein Element von $\mathbb{N}$ hat 0 als Nachfolger: $0 \notin v(\mathbb{N})$
+    \item[(\textbf{P.1})] Zwei verschiedene Elemente von $\mb{N}$ haben verschiedene Nachfolger: $x \neq y \Rightarrow v(x) \neq v(y)$
+    \item[(\textbf{P.2})] Kein Element von $\mb{N}$ hat 0 als Nachfolger: $0 \notin v(\mb{N})$
     \item[(\textbf{P.3})] (Induktions-Axiom)
 
-Sei $\mathbb{M} \subset \mathbb{N}$ eine Teilmenge mit folgenden Eigenschaften:
+Sei $\mb{M} \subset \mb{N}$ eine Teilmenge mit folgenden Eigenschaften:
     \begin{enumerate}
-        \item $0 \in \mathbb{M}$
-        \item $x \in \mathbb{M} \Rightarrow v(x) \in \mathbb{M}$
+        \item $0 \in \mb{M}$
+        \item $x \in \mb{M} \Rightarrow v(x) \in \mb{M}$
     \end{enumerate}
-Dann gilt $\mathbb{M} = \mathbb{N}$.
+Dann gilt $\mb{M} = \mb{N}$.
 \end{itemize}
 \end{defin}
 
@@ -139,13 +140,13 @@ Dann gilt $\mathbb{M} = \mathbb{N}$.
 
 \begin{defin}[Induktionsprinzip]
 \ \newline
-Eine Aussage $A(n)$ gilt für alle $n \in \mathbb{N}$, wenn $A(1)$ gilt und für jedes $n \in \mathbb{N}$ aus der Aussage $A(n)$ die 
+Eine Aussage $A(n)$ gilt für alle $n \in \mb{N}$, wenn $A(1)$ gilt und für jedes $n \in \mb{N}$ aus der Aussage $A(n)$ die 
 Aussage $A(n+1)$ folgt.
 \end{defin}
 
 \begin{Anmerkung}
 \ \newline
-$A(1)$ nennt man den Induktionsanfang und den Beweis von $\forall n \in \mathbb{N}: A(n) \Rightarrow A(n+1)$ den 
+$A(1)$ nennt man den Induktionsanfang und den Beweis von $\forall n \in \mb{N}: A(n) \Rightarrow A(n+1)$ den 
 Induktionsschluss oder Induktionsschritt.
 \end{Anmerkung}
 
@@ -153,44 +154,44 @@ Induktionsschluss oder Induktionsschritt.
 
 \begin{defin}[Abbildung]
 \ \newline
-Eine Abbildung $f$ von einer Menge $\mathbb{X}$ in eine Menge $\mathbb{Y}$ (Notation: $f: \mathbb{X} \mapsto \mathbb{Y}$)
-ist eine Zuordnung oder Vorschrift, die jedem Element $x \in \mathbb{X}$ ein eindeutiges Element $f(x) \in \mathbb{Y}$ zuordnet.
+Eine Abbildung $f$ von einer Menge $\mb{X}$ in eine Menge $\mb{Y}$ (Notation: $f: \mb{X} \mapsto \mb{Y}$)
+ist eine Zuordnung oder Vorschrift, die jedem Element $x \in \mb{X}$ ein eindeutiges Element $f(x) \in \mb{Y}$ zuordnet.
 \end{defin}
 
 \begin{defin}[Graph]
 \ \newline
-Der Graph einer Abbildung ist eine Teilmenge $\mathbb{G} \subset \mathbb{X} \times \mathbb{Y}$, die durch 
-Graph($f$) := $\{ (x,f(x)) \in \mathbb{X} \times \mathbb{Y}\ |\ x \in \mathbb{X}\}$ beschrieben wird. 
-Jedem $x \in \mathbb{X}$ wird genau ein $y \in \mathbb{X}$ zugeordnet (Notation: $y=f(x)$).
+Der Graph einer Abbildung ist eine Teilmenge $\mb{G} \subset \mb{X} \times \mb{Y}$, die durch 
+Graph($f$) := $\{ (x,f(x)) \in \mb{X} \times \mb{Y}\ |\ x \in \mb{X}\}$ beschrieben wird. 
+Jedem $x \in \mb{X}$ wird genau ein $y \in \mb{X}$ zugeordnet (Notation: $y=f(x)$).
 \end{defin}
 
 \subsection{Körperaxiome}
 
 \begin{defin}[Körper]\label{koerper}
 \ \newline
-Ein Tripel ($\mathbb{K}$,$+$,$\cdot$) bestehend aus einer Menge $\mathbb{K}$ und zwei binären Verknüpfungen 
+Ein Tripel ($\mb{K}$,$+$,$\cdot$) bestehend aus einer Menge $\mb{K}$ und zwei binären Verknüpfungen 
 
 \begin{tabular}{cccl}
-$+$ & : & $\mathbb{K} \times \mathbb{K} \rightarrow \mathbb{K}$, & $(x,y) \mapsto x+y$\\
-$\cdot$ & : & $\mathbb{K} \times \mathbb{K} \rightarrow \mathbb{K}$, & $(x,y) \mapsto x \cdot y$\\
+$+$ & : & $\mb{K} \times \mb{K} \rightarrow \mb{K}$, & $(x,y) \mapsto x+y$\\
+$\cdot$ & : & $\mb{K} \times \mb{K} \rightarrow \mb{K}$, & $(x,y) \mapsto x \cdot y$\\
 \end{tabular}
 
-(normalerweise \emph{Addition} und \emph{Multiplikation}) heißt genau dann Körper, wenn für alle $x$,$y$,$z \in \mathbb{K}$ die 
+(normalerweise \emph{Addition} und \emph{Multiplikation}) heißt genau dann Körper, wenn für alle $x$,$y$,$z \in \mb{K}$ die 
 folgenden Axiome gelten:
 \begin{itemize}
 \item Axiome der Addition
     \begin{enumerate}
     \item Assoziativität: $x + ( y + z ) = ( x + y ) + z$
     \item Kommutativität: $x + y = y + x$
-    \item Existenz des neutralen Elements: $\exists 0 \in \mathbb{K}: x + 0 = x$
-    \item Existenz der inversen Elemente: \emph{Zu jedem $x \in \mathbb{K}$ existiert genau ein Element $-x \in \mathbb{K}$}: $x + (-x) = 0$
+    \item Existenz des neutralen Elements: $\exists 0 \in \mb{K}: x + 0 = x$
+    \item Existenz der inversen Elemente: \emph{Zu jedem $x \in \mb{K}$ existiert genau ein Element $-x \in \mb{K}$}: $x + (-x) = 0$
     \end{enumerate}
 \item Axiome der Multiplikation
     \begin{enumerate}
     \item Assoziativität: $x \cdot ( y \cdot z ) = ( x \cdot y ) \cdot z$
     \item Kommutativität: $x \cdot y = y \cdot x$
-    \item Existenz des neutralen Elements: $\exists 1 \in \mathbb{K},1 \neq 0: x \cdot 1 = x$
-    \item Existenz der inversen Elemente: \emph{Zu jedem $x \in \mathbb{K}$ mit $x \neq 0$ existiert genau ein Element $x^{-1} \in \mathbb{K}$
+    \item Existenz des neutralen Elements: $\exists 1 \in \mb{K},1 \neq 0: x \cdot 1 = x$
+    \item Existenz der inversen Elemente: \emph{Zu jedem $x \in \mb{K}$ mit $x \neq 0$ existiert genau ein Element $x^{-1} \in \mb{K}$
             }: $x \cdot x^{-1} = 1$
     \end{enumerate}
 \item Distributivgesetz: $x \cdot ( y + z ) = x \cdot y + x \cdot z$
@@ -198,7 +199,7 @@ folgenden Axiome gelten:
 \end{defin}
 
 \begin{Beispiel}
-Die Mengen $\mathbb{Q}, \mathbb{R}$ und $\mathbb{C}$ bilden mit "`+"' und "`\ $\cdot$\ "' einen Körper. Neutrale Elemente sind 0 bzw. $(0,0)$
+Die Mengen $\mb{Q}, \mb{R}$ und $\mb{C}$ bilden mit "`+"' und "`\ $\cdot$\ "' einen Körper. Neutrale Elemente sind 0 bzw. $(0,0)$
 für die Addition und 1 bzw. $(1,0)$ für die Multiplikation.
 \end{Beispiel}
 
@@ -206,33 +207,33 @@ für die Addition und 1 bzw. $(1,0)$ für die Multiplikation.
 
 \begin{defin}[binäre Relation]\label{brelation}
 \ \newline
-Eine binäre Relation $\cal{R}$ auf der Menge $\mathbb{M}$ ist eine Teilmenge von $\mathbb{M} \times \mathbb{M}$, also $\cal{R} \subset \mathbb{M} \times \mathbb{M}$
+Eine binäre Relation $\cal{R}$ auf der Menge $\mb{M}$ ist eine Teilmenge von $\mb{M} \times \mb{M}$, also $\cal{R} \subset \mb{M} \times \mb{M}$
 \end{defin}
 
 \begin{defin}[Relationseigenschaften]\label{eigrelation}
 \ \newline
-Eine binäre Relation $\cal{R}$ auf einer Menge $\mathbb{M}$ heißt
+Eine binäre Relation $\cal{R}$ auf einer Menge $\mb{M}$ heißt
 \begin{itemize}
-    \item \textbf{reflexiv}, falls $\forall m \in \mathbb{M}: (m,m) \in \cal{R}$
-    \item \textbf{symmetrisch}, falls $\forall m,n \in \mathbb{M}: (m,n) \in \cal{R} \Rightarrow $$ (n,m) \in \cal{R}$
-    \item \textbf{transitiv}, falls $\forall k,m,n \in \mathbb{M}: (k,m) \in \cal{R}\ \wedge\ $$ (m,n) \in \cal{R} \Rightarrow $$ (k,n) \in \cal{R}$
+    \item \textbf{reflexiv}, falls $\forall m \in \mb{M}: (m,m) \in \cal{R}$
+    \item \textbf{symmetrisch}, falls $\forall m,n \in \mb{M}: (m,n) \in \cal{R} \Rightarrow $$ (n,m) \in \cal{R}$
+    \item \textbf{transitiv}, falls $\forall k,m,n \in \mb{M}: (k,m) \in \cal{R}\ \wedge\ $$ (m,n) \in \cal{R} \Rightarrow $$ (k,n) \in \cal{R}$
 \end{itemize}
 \end{defin}
 
 \begin{defin}[Äquivalenzrelation]
 \ \newline
-$\cal{R}$ ist eine binäre Relation auf $\mathbb{M}$, welche reflexiv, symmetrisch und transitiv ist. Notation: $x \sim y$.
+$\cal{R}$ ist eine binäre Relation auf $\mb{M}$, welche reflexiv, symmetrisch und transitiv ist. Notation: $x \sim y$.
 \end{defin}
 
 \begin{defin}[Ordnungsrelation]
 \ \newline
-$\cal{R}$ ist eine binäre Relation auf $\mathbb{M}$, welche reflexiv, antisymmetrisch und transitiv ist. Notation: $x \leq y$.
+$\cal{R}$ ist eine binäre Relation auf $\mb{M}$, welche reflexiv, antisymmetrisch und transitiv ist. Notation: $x \leq y$.
 \end{defin}
 
 \begin{defin}[angeordneter Körper]
 \ \newline
-Ein Körper $(\mathbb{K},+,\cdot)$ wird mit einer Ordnungsrelation $\leq$ zu einem angeordneten Körper. Elemente aus $\mathbb{K}$ werden damit 
-vergleichbar und es gilt $\forall x,y \in \mathbb{K}: x \leq y \vee y \leq x$
+Ein Körper $(\mb{K},+,\cdot)$ wird mit einer Ordnungsrelation $\leq$ zu einem angeordneten Körper. Elemente aus $\mb{K}$ werden damit 
+vergleichbar und es gilt $\forall x,y \in \mb{K}: x \leq y \vee y \leq x$
 \end{defin}
 
 \subsubsection{Absolutbetrag}
@@ -251,15 +252,15 @@ x & x \geq 0\\
 \begin{Satz}[Eigenschaften des Absolutbetrages]\label{satz:eigabs}
 \
 \begin{itemize}
-    \item[(a)] \emph{Positive Definitheit:} $\forall x \in \mathbb{R}: |x| \geq 0$ und $|x|=0 \Longleftrightarrow x=0$
-    \item[(b)] \emph{Multiplikativität:} $\forall x,y \in \mathbb{R}: |x \cdot y| = |x| \cdot |y|$
-    \item[(c)] \emph{Dreiecksungleichung:} $\forall x,y \in \mathbb{R}: |x+y| \leq |x|+|y|$
+    \item[(a)] \emph{Positive Definitheit:} $\forall x \in \mb{R}: |x| \geq 0$ und $|x|=0 \Longleftrightarrow x=0$
+    \item[(b)] \emph{Multiplikativität:} $\forall x,y \in \mb{R}: |x \cdot y| = |x| \cdot |y|$
+    \item[(c)] \emph{Dreiecksungleichung:} $\forall x,y \in \mb{R}: |x+y| \leq |x|+|y|$
 \end{itemize}
 \end{Satz}
 
 \begin{Anmerkung}
 Gelten in einem Körper die Eigenschaften \emph{a},\emph{b},\emph{c} aus Satz \ref{satz:eigabs}, dann nennt man ihn einen 
-\emph{bewerteten} Körper. Angeordnete Körper müssen nicht gleich bewertete Körper sein. Beispiel: $\mathbb{C}$
+\emph{bewerteten} Körper. Angeordnete Körper müssen nicht gleich bewertete Körper sein. Beispiel: $\mb{C}$
 \end{Anmerkung}
 
 \begin{defin}[Metrik im Reellen]
@@ -277,14 +278,14 @@ Zu je zwei reellen Zahlen $x,y > 0$ existiert eine natürliche Zahl $n$ mit $n \c
 \begin{Korollar}[Gauß-Klammer]
 \ \newline
 \begin{tabular}{ll}
-\textbf{\emph{abrunden:}}  & $\lfloor x \rfloor$ ist jene Zahl $n \in \mathbb{Z}$ für die gilt: $n \leq x < n+1$.\\
-\textbf{\emph{aufrunden:}} & $\lceil x \rceil$ ist jene Zahl $m \in \mathbb{Z}$ für die gilt: $m < x \leq m+1$.
+\textbf{\emph{abrunden:}}  & $\lfloor x \rfloor$ ist jene Zahl $n \in \mb{Z}$ für die gilt: $n \leq x < n+1$.\\
+\textbf{\emph{aufrunden:}} & $\lceil x \rceil$ ist jene Zahl $m \in \mb{Z}$ für die gilt: $m < x \leq m+1$.
 \end{tabular}
 \end{Korollar}
 
 \begin{Satz}[Bernoullische Ungleichung]
 \ \newline
-Sei $x \geq -1$, dann gilt $\forall n \in \mathbb{N}$:
+Sei $x \geq -1$, dann gilt $\forall n \in \mb{N}$:
 \[
     (1+x)^n \geq 1 + n \cdot x
 \]
@@ -294,20 +295,99 @@ Sei $x \geq -1$, dann gilt $\forall n \in \mathbb{N}$:
 
 \begin{defin}[Folge]
 \ \newline
-Unter einer \emph{Folge} reeller Zahlen versteht man eine Abbildung $\mathbb{N} \mapsto \mathbb{R}$. Jedem $n \in \mathbb{N}$ 
-ist also ein $a_n \in \mathbb{R}$ zugeordnet. Notation: $(a_n)_{n \in \mathbb{N}}$ oder $(a_0,a_1,a_2,a_3,...)$
+Unter einer \emph{Folge} reeller Zahlen versteht man eine Abbildung $\mb{N} \mapsto \mb{R}$. Jedem $n \in \mb{N}$ 
+ist also ein $a_n \in \mb{R}$ zugeordnet. Notation: $(a_n)_{n \in \mb{N}}$ oder $(a_0,a_1,a_2,a_3,...)$
 \end{defin}
 
 \begin{defin}[Konvergenz]
 \ \newline
-Sei $(a_n)_{n \in \mathbb{N}}$ eine Folge reeller Zahlen. Die Folge heißt \emph{konvergent} gegen $a \in \mb{R}$, falls gilt:
+Sei $(a_n)_{n \in \mb{N}}$ eine Folge reeller Zahlen. Die Folge heißt \emph{konvergent} gegen $a \in \mb{R}$, falls gilt:
 \[
     \forall \varepsilon > 0\ \exists N = N(\varepsilon) \in \mb{N}\ \forall n \in \mb{N}: n \geq N(\varepsilon) \Rightarrow |a_n - a| < \varepsilon
 \]
 
-Notation: $\lim\limits_{n \rightarrow \infty}$
+Notation: $\lim\limits_{n \rightarrow \infty} a_n = a$
+
+Konvergiert $a_n$ gegen $a$, dann nennt man $a$ den Grenzwert oder Limes der Folge. 
+Gilt $\limes a_n = 0$, dann heißt $a_n$ auch \emph{Nullfolge}.
 \end{defin}
 
+\begin{defin}[Divergenz]
+\ \newline
+Eine Folge $(a_n)$, die nicht konvergiert, heißt divergent.
+\end{defin}
 
+\begin{defin}[Beschränktheit]
+\ \newline
+Eine Folge $(a_n)_{n \in \mb{N}}$ reeller Zahlen heißt \emph{nach oben} (bzw. \emph{nach unten}) \emph{beschränkt}, wenn es eine 
+Konstante $K \in \mb{R}$ gibt, so dass 
+\[
+\forall n \in \mb{N}: a_n \leq K (\text{bzw.} a_n \geq K).
+\]
+
+Die Folge $(a_n)_{n \in \mb{N}}$ heißt \emph{beschränkt}, wenn es eine reelle Konstante $M \geq 0$ gibt, so dass 
+\[
+\forall n \in \mb{N}:|a_n| \leq M
+\]
+
+Eine Folge ist also genau dann beschränkt, wenn sie sowohl nach oben als auch nach unten beschränkt ist.
+\end{defin}
+
+\begin{Satz}\label{satz:konvfolbeschr}
+Jede konvergente Folge $(a_n)_{n \in \mb{N}}$ ist beschränkt.
+\end{Satz}
+
+\begin{Anmerkung}
+Die Umkehrung von Satz \ref{satz:konvfolbeschr} gilt nicht. Beispiel: $a_n := (-1)^n$ ist beschränkt, konvergiert aber nicht. 
+Eine Folge muss aber beschränkt sein, damit sie überhaupt konvergieren kann.
+\end{Anmerkung}
+
+\begin{Satz}[Rechenregeln für Grenzwerte]
+\ \newline
+Seien $(a_n)_{n \in \mb{N}}$ und $(b_n)_{n \in \mb{N}}$ konvergente Folgen reeller Zahlen. Dann gilt:
+\begin{align}
+\limes (a_n + b_n) & = \limes a_n + \limes b_n\\
+\limes (a_n \cdot b_n) & = \limes a_n \cdot \limes b_n\\
+\Rightarrow \limes (\lambda \cdot a_n + \mu \cdot b_n) & = \lambda \cdot \limes a_n + \mu \cdot \limes b_n)
+\intertext{falls $\limes b_n \neq 0:$}
+\limes \frac{a_n}{b_n} & = \frac{\limes a_n}{\limes b_n}
+\end{align}
+\end{Satz}
+
+\begin{defin}[bestimmte Divergenz]
+\ \newline
+Sei $(a_n)_{n \in \mb{N}}$ eine Folge aus $\mb{R}$, dann heißt $a_n$ bestimmt divergent, falls einer der beiden Fälle auftritt:
+\begin{itemize}
+    \item[(a)] $\limes = \infty \Longleftrightarrow \forall \in \mb{R}\ \exists N = N(L) \in \mb{N}\ \forall n \in \mb{N} : n \geq N(L) \Rightarrow a_n > L$
+    \item[(b)] $\limes = -\infty \Longleftrightarrow \forall \in \mb{R}\ \exists N = N(L) \in \mb{N}\ \forall n \in \mb{N} : n \geq N(L) \Rightarrow a_n < L$
+\end{itemize}
+\end{defin}
+
+\begin{Anmerkung}
+$\infty$ und $-\infty$ sind keine reellen Zahlen!
+\end{Anmerkung}
+
+\begin{defin}[Cauchy-Folge]
+\ \newline
+Eine Folge $a_n$ in $\mb{R}$ heißt Cauchy-Folge, falls
+\[
+\forall \varepsilon > 0\ \exists N = N(\varepsilon) \in \mb{N}\ \forall n,m \in \mb{N} : n,m \geq N(\varepsilon) \Rightarrow |a_n - a_m| < \varepsilon
+\]
+Jede konvergente Folge ist eine Cauchy-Folge.
+\end{defin}
+
+\begin{defin}[Vollständigkeitsaxiom]
+\ \newline
+In $\mb{R}$ konvergiert jede Cauchy-Folge.
+\end{defin}
+
+\begin{Satz}[Satz von Bolzano-Weierstraß]
+Jede beschränkte Folge besitzt eine konvergente Teilfolge.
+
+Das heißt: gilt $|a_n| \leq M$ für alle $n$, dann gibt es Indizes $n_1 < n_2 < n_3 < ...$, 
+so dass $\limes a_{n_k}$ existiert.
+
+Die Grenzwerte der Teilfolgen nennt man Häufungspunkte der Folge.
+\end{Satz}
 
 \end{document}
