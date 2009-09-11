@@ -25,6 +25,11 @@ fleqn,          % Ausgabe von Gleichungen linksbündig
 %ist mir zu blöd, das jedes Mal zu schreiben:
 \newcommand{\mb}[1]{\mathbb{#1}}
 \newcommand{\limes}{\lim\limits_{n\rightarrow\infty}}
+\newcommand{\folge}[1]{(a_{#1})_{{#1} \in \mb{N}}}
+\newcommand{\folgpart}{(S_n)_{n \in \mb{N}}}
+\newcommand{\sumkinf}{\sum\limits_{k=1}^{\infty}}
+\newcommand{\sumninf}{\sum\limits_{n=1}^{\infty}}
+\newcommand{\sumkn}{\sum\limits_{k=1}^{n}}
 
 %Einstellungen fuer ntheorem
 
@@ -259,6 +264,7 @@ x & x \geq 0\\
 \end{Satz}
 
 \begin{Anmerkung}
+\ \newline
 Gelten in einem Körper die Eigenschaften \emph{a},\emph{b},\emph{c} aus Satz \ref{satz:eigabs}, dann nennt man ihn einen 
 \emph{bewerteten} Körper. Angeordnete Körper müssen nicht gleich bewertete Körper sein. Beispiel: $\mb{C}$
 \end{Anmerkung}
@@ -338,6 +344,7 @@ Jede konvergente Folge $(a_n)_{n \in \mb{N}}$ ist beschränkt.
 \end{Satz}
 
 \begin{Anmerkung}
+\ \newline
 Die Umkehrung von Satz \ref{satz:konvfolbeschr} gilt nicht. Beispiel: $a_n := (-1)^n$ ist beschränkt, konvergiert aber nicht. 
 Eine Folge muss aber beschränkt sein, damit sie überhaupt konvergieren kann.
 \end{Anmerkung}
@@ -389,5 +396,132 @@ so dass $\limes a_{n_k}$ existiert.
 
 Die Grenzwerte der Teilfolgen nennt man Häufungspunkte der Folge.
 \end{Satz}
+
+\subsubsection{Reihen}
+
+\begin{defin}[$n$-te Partialsumme]
+\ \newline
+Zu jeder Folge $\folge{n}$ bezeichnet $S_n := \sum\limits_{k=1}^n a_k$ die $n$-te Partialsumme von $\folge{n}$.
+\end{defin}
+
+\begin{defin}[Reihe]
+\ \newline
+Die Reihe zu einer Folge $\folge{n}$ ist die Folge der $n$-ten Partialsummen: $(S_n)_{n \in \mb{N}} = 
+\left( \sum\limits_{k=1}^n \right)_{n \in \mb{N}}$
+\end{defin}
+
+\begin{defin}[Reihenkonvergenz]
+\ \newline
+Eine Reihe heißt konvergent, wenn für die Folge $\folgpart$ der Partialsummen eine Zahl $S \in \mb{R}$ mit $\limes S_n = S$ existiert.
+
+Notation: $S = \sum\limits_{k=1}^{\infty} a_k$
+\end{defin}
+
+\begin{defin}[absolute Konvergenz]
+\ \newline
+Eine Reihe $\sum\limits_{k=1}^{\infty} a_k$ heißt absolut konvergent, wenn die Reihe $\sum\limits_{k=1}^{\infty} |a_k|$ konvergiert.
+\end{defin}
+
+\subsubsection{Konvergenzkriterien für Reihen}
+
+\begin{Satz}[Nullfolge als notwendiges Kriterium für Konvergenz]
+\ \newline
+Eine notwendige (aber nicht hinreichende) Bedingung für die Konvergenz einer Reihe $\sumninf a_n$ ist, dass $\limes a_n = 0$
+\end{Satz}
+
+\begin{Anmerkung}
+\ \newline
+Bestes Beispiel dafür, dass die Reihe einer Nullfolge nicht automatisch konvergiert ist die \emph{harmonische} Reihe:
+
+ $\limes \frac{1}{n} = 0$, aber $\sumninf \frac{1}{n} = +\infty$
+\end{Anmerkung}
+
+\begin{Satz}[\textsc{Cauchy}sches Konvergenzkriterium]
+\ \newline
+Die Reihe $\sumkinf a_k$ konvergiert genau dann, wenn gilt:
+\[
+\forall \varepsilon > 0\ \exists N(\varepsilon) \in \mb{N}\ \forall n \geq m \geq N(\varepsilon): \left| \sum\limits_{k=m}^n a_k \right| < \varepsilon
+\]
+\end{Satz}
+
+\begin{Satz}[\textsc{Leibniz}-Kriterium]
+\ \newline
+Sei $\folge{n}$ eine monoton fallende Folge nichtnegativer reeller Zahlen mit $\limes a_n = 0$. 
+
+Dann konvergiert die Reihe $\sumkinf (-1)^k \cdot a_k$
+\end{Satz}
+
+\begin{Satz}[Majorantenkriterium]
+\ \newline
+Sei $\sumkinf c_k$ eine konvergente Reihe mit $c_k \geq 0$ für alle $k \in \mb{N}$. Weiter sei $\folge{k}$ eine Folge mit 
+$|a_k| \leq c_k$ für alle $k \in \mb{N}$. Dann konvergiert die Reihe $\sumkinf a_k$ absolut.
+\end{Satz}
+
+\begin{Satz}[Quotientenkriterium]
+\ \newline
+Sei $\sumkinf a_k$ eine Reihe mit $a_k \neq 0$ für alle $k \geq k_0$. Weiterhin gebe es eine reelle Zahl $\theta$ mit $0 < \theta < 1$, 
+so dass $\frac{a_{k+1}}{a_k} \leq \theta$ für alle $k \geq k_0$. Dann konvergiert die Reihe $\sumkinf a_k$ absolut.
+\end{Satz}
+
+\begin{Satz}[Wurzelkriterium]
+\ \newline
+Sei $0 < q < 1$ eine feste Zahl und $\sumkinf a_k$ eine Reihe mit $\sqrt[k]{|a_k|} \leq q$. Dann konvergiert die Reihe $\sumkinf a_k$ absolut.
+\end{Satz}
+
+\begin{Anmerkung}
+Das Quotienten- und Wurzelkriterium sind Anwendungen des Majorantenkriteriums.
+\end{Anmerkung}
+
+\begin{Satz}[absolute Konvergenz als hinreichendes Kriterium]
+\ \newline
+Eine absolut konvergierende Reihe konvergiert auch im gewöhnlichen Sinn.
+\end{Satz}
+
+\begin{Anmerkung} Absolute Konvergenz ist allerdings keine notwendige Bedingung.
+
+Beispiel: $\sumkinf (-1)^k \cdot \frac{1}{k}$ konvergiert nach dem Leibniz-Kriterium, ist jedoch nicht absolut konvergent 
+(da die harmonische Reihe divergiert).
+\end{Anmerkung}
+
+\begin{Satz}[Linearkombinationen konvergenter Reihen]
+\ \newline
+Seien $\sumninf a_n$ und $\sumninf b_n$ konvergente Reihen reeller Zahlen und $\lambda, \mu \in \mb{R}$. 
+
+Dann konvergiert auch die Reihe $\sumninf (\lambda \cdot a_n + \mu \cdot b_n)$ und es gilt
+\[
+\sumninf (\lambda \cdot a_n + \mu \cdot b_n) = \lambda \cdot \sumninf a_n + \mu \cdot \sumninf b_n
+\]
+\end{Satz}
+
+\subsubsection{spezielle Reihen}
+
+\begin{defin}[Teleskop-Summe]
+\ \newline
+Heben sich in einer Reihe zwei aufeinanderfolgende Glieder auf, dann nennt man die Reihe eine Teleskopsumme.
+
+Beispiel: $\sumkn \frac{1}{k(k+1)}$ wird mittels Partialbruchzerlegung zu $\sumkn \left( \frac{1}{k} - \frac{1}{k+1} \right)$. 
+Da sich hier immer zwei aufeinanderfolgende Glieder aufheben ($= 1 - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \frac{1}{3} - \frac{1}{4} + \dots$),
+lässt sich der Grenzwert der Reihe einfach berechnen: 
+\[
+\limes \sumkn \frac{1}{k(k+1)} = \limes 1 - \frac{1}{n+1} = 1
+\]
+\end{defin}
+
+\begin{defin}[Unendliche geometrische Reihe]
+\ \newline
+Die Reihe $\sum\limits_{n=0}^{\infty}  x^n$ konvergiert für $|x|<1$ gegen:
+\[
+\sum\limits_{n=0}^{\infty}  x^n = \frac{1}{1-x}
+\]
+\end{defin}
+
+\begin{defin}[$b$-adische Brüche]
+\ \newline
+Sei $b$ eine natürliche Zahl $\geq 2$. Unter einem (unendlichen) $b$-adischen Bruch versteht man eine Reihe der Gestalt
+\[
+\pm \sum\limits_{n=-k}^{\infty} a_n b^{-n}
+\]
+Dabei ist $k \geq 0$ und die $a_n$ sind natürliche Zahlen mit $0 \leq a_n < b$. 
+\end{defin}
 
 \end{document}
