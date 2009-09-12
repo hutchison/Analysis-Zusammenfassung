@@ -12,4 +12,4 @@ clean:
 git: clean
 	git add .
 	git commit
-
+	git push origin master
